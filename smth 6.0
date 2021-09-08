@@ -1,0 +1,61 @@
+import java.util.*;
+public class Main{
+    public static String findFirstName(username){
+        Scanner s = new Scanner(System.in);
+        String username;
+        System.out.println("enter your full name");
+        username = s.nextLine();
+        int charposition = 0;
+        String space = " ";
+        String comma = ",";
+        while (charposition != space.charAt(0) || (charposition != comma.charAt(0))){
+            if (username.charAt(charposition) == space.charAt(0)){
+                username = username.substring(0,charposition);
+            }
+            if (username.charAt(charposition) == comma.charAt(0)){
+                username = username.substring(charposition);
+            }
+            charposition++;
+        }
+        return(username);
+    }
+
+    public static void prices(){
+        final double itemA = 15.99;
+        final double itemB = 25.99;
+        final double itemC = 7.99;
+        final double itemD = 5.99;
+        int option = 0, numA = 0, numB = 0, numC = 0, numD = 0;
+        double total;
+        String username = findFirstName();
+        Scanner s = new Scanner(System.in);
+        while (option != 5){
+            System.out.println("Manual:");
+            System.out.println("1: Item A is " + itemA);
+            System.out.println("2: Item B is " + itemB);
+            System.out.println("3: Item C is " + itemC);
+            System.out.println("4: Item D is " + itemD);
+            System.out.println("5 is to end program");
+            option = s.nextInt();
+            if (option == 1){
+                numA++;
+            }
+            if (option == 2)
+                numB++;
+            }
+            if (option == 3){
+                numC++;
+            }
+            if (option == 4){
+                numD++;
+            }
+        }
+        total = ((numA * itemA) + (numB * itemB) + (numC * itemC) + (numD * itemD) * 1.095);
+        System.out.println(username + " your total is " + total);
+    }
+    public static void main(String[] args){
+        prices();
+
+    }
+}
+
